@@ -1,6 +1,6 @@
 {
   "name": "local-midi-qwerty-keyboard",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Use qwerty keyboard as midi keyboard in the browser",
   "main": "index.js",
   "scripts": {
