@@ -110,23 +110,18 @@ module.exports = function(options){
     var isBlack = !_.includes(WHITE_KEYS, char);
     var arrayKeys = isBlack ? BLACK_KEYS : WHITE_KEYS;
     var arrayVals = isBlack ? BLACK_VALS : WHITE_VALS;
-    var result = arrayVals[arrayKeys.indexOf(char)]
+    var result = valueOfReplicatedArray(arrayVals, _.indexOf(arrayKeys, char));
     return result;
   }
-  // function indexOfReplicatedArray(array, val){ // say val = 14 white
-  //   let modIndex = _.indexOf(array, val % 12); // modIndex = 1
-  //   let numLoops = Math.floor(val / 12); // numLoops = 1
-  //   return numLoops * array.length + modIndex; // return 8
-  // }
 
-  // function valueOfReplicatedArray(array, index){
-  //   let n = array.length;
-  //   let i = index;
-  //   let posResult = 12 * Math.floor(i / n) + array[i % n];
-  //   let negResult = 12 * Math.ceil((i + 1) / n - 1) + array[((i % n) + n) % n];
-  //   let result = i >= 0 ? posResult : negResult;
-  //   return result;
-  // }
+  function valueOfReplicatedArray(array, index){
+    var n = array.length;
+    var i = index;
+    var posResult = 12 * Math.floor(i / n) + array[i % n];
+    var negResult = 12 * Math.ceil((i + 1) / n - 1) + array[((i % n) + n) % n];
+    var result = i >= 0 ? posResult : negResult;
+    return result;
+  }
 
   return keyboard
 }
